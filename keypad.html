@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keypad Interface</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            /* Black background for the whole page */
+        }
+
+        .title {
+            display: flex; /* Use Flexbox */
+            justify-content: space-around; /* Distribute space around items */
+            align-items: center; /* Align items vertically */
+            background-color: #000;
+            color: #fff;
+            padding: 41px;
+            text-align: center;
+            font-size: 2em;
+            margin: 3px;
+            border: 41px solid #fff;
+            border-radius: 25px;
+            box-shadow: 3px 3px #333;
+        }
+
+        .title span {
+        /* Optional: Add if you want to control the size of the number elements */
+        flex-grow: 1; /* Allows each span to grow and fill the space */
+        text-align: center; / Centers the text within each span */
+}
+
+        .status-bar {
+            background-color: rgb(255, 255, 255);
+            /* Green status bar */
+            color: white;
+            padding: 10px;
+            /* Align to the start of the bar */
+        }
+
+        .status-bar div {
+            flex-basis: 50%;
+            text-align: center;
+        }
+
+        .keypad {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr) auto; /* Three columns of equal size and a fourth for the wide buttons */
+            gap: 10px;
+            padding: 20px;
+            background-color: #333;
+        }
+
+        .button {
+            background-color: #fff;
+            /* White buttons */
+            color: #000;
+            /* Black text for buttons */
+            border: 2px solid #000;
+            /* Black border for buttons */
+            padding: 20px;
+            font-size: 1.5em;
+            /* Larger font for buttons */
+            cursor: pointer;
+        }
+
+        .button.function, .button.bypass, .button.reset {
+            grid-column: span 1; /* Each function button spans 1 column */
+        }
+
+        .button.function {
+            grid-row: 1;
+        }
+
+        .button.bypass {
+            grid-row: 2;
+        }
+
+        .button.reset {
+            grid-row: 3;
+        }
+
+        /* Extra styles for special function buttons */
+        .button.large {
+            grid-column: span 2;
+            /* Span across two columns */
+        }
+
+        .button.number {
+             padding: 30px 20px; /* More vertical padding, same horizontal padding */
+        }
+
+        /* Style for the 'ARMED' and 'STATUS' indicator */
+        .indicator {
+            display: inline-block;
+            /* Adjusted border radius for smaller indicators */
+            font-size: 1.3em;
+            color: black;
+            /* Smaller font size for text inside indicators */
+        }
+
+        .indicator.armed {
+            height: 15px;
+            width: 100px;
+            background-color: #ffa500;
+            /* Dark green for 'ARMED' */
+            color: white;
+        }
+
+        .indicator.status {
+            height: 15px;
+            width: 100px;
+            background-color: #080;
+            /* Amber for 'STATUS' */
+            color: black;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <span>1</span> <span>2</span> <span>3</span> <span>4</span> <span>5</span> <span>6</span> <span>7</span>
+      </div>
+        <div class="status-bar">
+        <div class="indicator">ARMED</div>
+        <div class="indicator armed"></div>
+        <div class="indicator ">STATUS</div>
+        <div class="indicator status"></div>
+    </div>
+    <div class="keypad">
+        <button class="button function">FUNCTION</button>
+        <button class="button number">1</button>
+        <button class="button number">2</button>
+        <button class="button number">3</button>
+        <button class="button large">ON/OFF</button>
+        
+        <button class="button bypass">BYPASS</button>
+        <button class="button number">4</button>
+        <button class="button number">5</button>
+        <button class="button number">6</button>
+        <button class="button large">NEXT/YES</button>
+        
+        <button class="button reset">RESET</button>
+        <button class="button number">7</button>
+        <button class="button number">8</button>
+        <button class="button number">9</button>
+        <button class="button large">PRIOR/NO</button>
+    
+        <!-- This is an empty div to help maintain the layout -->
+        <div></div>
+        <button class="button number zero">0</button>
+        <button class="button large">AREA/*</button>
+    </div>
+</body>
+
+</html>
